@@ -41,11 +41,15 @@ def parse_page(json):
             yield data
 
 if __name__ == '__main__':
-    for page in range(2, 9):  # 抓取前十页的数据
+    for page in range(1, 9):  # 抓取前十页的数据
         json = get_data_by_page(page)
-        results = parse_page(json)
-        for result in results:
-            print(result)
+        try:
+            results = parse_page(json)
+            for result in results:
+                print(result)
+        except Exception as e:
+            print(e)
+        
 
 
 
