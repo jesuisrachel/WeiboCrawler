@@ -58,6 +58,7 @@ def write_in_csv(results):
         with open('dataset.csv', 'a+', encoding = 'utf-8') as file:
             w = csv.writer(file)
             w.writerow([result['text'], result['attitudes'], result['comments'], result['reposts']])
+            print("####################################################")
         
 
 if __name__ == '__main__':
