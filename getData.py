@@ -55,20 +55,18 @@ def init_csv():
 def write_in_csv(results):
     print("*******************************************")
     for result in results:
+        print(result)
         with open('dataset.csv', 'a+', encoding = 'utf-8') as file:
             w = csv.writer(file)
             w.writerow([result['text'], result['attitudes'], result['comments'], result['reposts']])
-            print("####################################################")
         
 
 if __name__ == '__main__':
     init_csv()
-    for page in range(1, 9):  # 抓取前十页的数据
+    for page in range(1, 33):  # 抓取前十页的数据
         json = get_data_by_page(page)
         try:
             results = parse_page(json)
-            for result in results:
-                print(result)
             write_in_csv(results)
         except Exception as e:
             print("异常", e)
