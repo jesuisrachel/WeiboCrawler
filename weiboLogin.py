@@ -11,7 +11,7 @@ def loginWeibo(username, password):
     driver.get("https://passport.weibo.cn/signin/login")
     time.sleep(3)
 
-    driver.find_element_by_id("loginName").send_keys(username)
+    driver.find_element_by_id("input_nick_name").send_keys(username)
     driver.find_element_by_id("loginPassword").send_keys(password)
     driver.find_element_by_id("loginAction").click()
 

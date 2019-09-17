@@ -17,18 +17,9 @@ def preprocessing(path):
     for line in X.astype(str):
         line = re.sub(r,'',''.join(line))
         line = list(jieba.cut(line))
+        line = re.sub(r,'',''.join(line))
         results.append(line)
     print(results)
     return results,Y
 
 x,y = preprocessing('F:/rachel/WeiboCrawler/labelled.csv')
-
-with open('fenci.csv', 'w', encoding='utf-8') as file:
-    w = csv.writer(file)
-    w.writerow(['tokenization'])
- 
-with open('fenci.csv', 'a+', encoding="utf-8") as file:
-    w = csv.writer(file)
-    for i in range(0,len(x)):
-        # print(x[i])
-        w.writerow([x[i]])
